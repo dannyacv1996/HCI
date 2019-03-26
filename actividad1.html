@@ -13,8 +13,7 @@
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 			<style type="text/css">
 		  		body {
-		  			font-faimly:arial;
-					color:#FF0000
+
 		  		}
 		  	</style>
 			<title>
@@ -123,15 +122,23 @@
 				<div class ="col -md-2"></div>
 				</div>
 			</div>
-			<div>
+			<div class="container-fluid">
+				<div class="row">
+				<div class ="col -md-2"></div>
+				<div class="col-md-8">
 				<h3>Conoce mas de mis recetas</h3>
-				<table>
+				<table class="table">
+					<thead>
 						<tr>
-							<td>Nombre receta</td>
-							<td>Descripción</td>
-							<td>Ver más</td>
+      						<th scope="col">#</th>
+      						<th scope="col">Nombre receta</th>
+      						<th scope="col">Descripción</th>
+      						<th scope="col">Ver más</th>
 						</tr>
+					</thead>
+					<tbody>
 						<tr>
+							<th scope="row">1</th>
 							<td>Postre de maracuya</td>
 							<td>Postre ligero y saludable</td>
 							<td>
@@ -139,23 +146,30 @@
 							</td>
 						</tr>
 						<tr>
+							<th scope="row">2</th>
 							<td>Parfai de frambuesa</td>
 							<td>facil y rapido especial para fiestas</td>
 							<td>
 								<a href="Ver aqui">Ver aquí</a>
 							</td>
 						</tr>
-						<tr>
-							<td></td>
-							<td>*Todos los postres son faciles de realizar</td>
-							<td></td>
-						</tr>
+					</tbody>
 				</table>
 				<hr>
 			</div>
-			<div>
-				<h2>Conoce el resultado final de la receta de Pizza</h2>
-				<img src="">
+			<div class ="col -md-2"></div>
+			</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row"> 
+				<div class="col -md-2"></div>
+				<div class="col -md-8">
+					<h2>Conoce el resultado final de la receta de Pizza</h2>
+					<img src="">
+				</div>
+				<div class="col -md-2"></div>
+			</div>
 			</div>
 		</body>
 	</html>
+
