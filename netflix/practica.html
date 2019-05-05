@@ -17,8 +17,19 @@
 	background-color: white; 
 }
 .jumbotron{
+	height: 2px;
 	background-color: black;
 }
+.form-actions{
+    margin: 0;
+    text-align: center;
+}
+
+.btn{
+	color:black;
+	background-color: white;
+}
+
 </style>
 </head>
 <body background="\Users\Danny\Pictures\fondo.jpg">
@@ -29,12 +40,13 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class ="col -md-2"></div>
-				<h1  style="color:red;"> Netflix </h1>
+				<h1 style="color:red;"> Netflix </h1>
 			<div class ="col -md-2"></div>
 		</div>
 	</div>
 	<br>
 	<div class="horizontal-line"></div>
+	<br>
 	<div class="container">
     	<div class="jumbotron">
 	    	<form id="searchForm">
@@ -42,6 +54,9 @@
 	    	</form>
 	    </div>
     </div>
+	<div class="form-actions">
+    	<button type="button" id="buscar" class="btn"> Buscar </button>
+	</div>
 
     <div class="container">
       <div id="movies" class="row"></div>
@@ -50,29 +65,36 @@
 	<div class="container-fluid">
 		<div class="row">
 				<div class="col -sd-8">
-				<h2 style="color:white;"> Catálogo Películas </h2>
+				<h2 style="color:white;"> Peliculas </h2>
 				</div>
 			<div class ="col -md-2"></div>
 		</div>
 	</div>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col -md-8">
-				<img src="\Users\Danny\Pictures\shazam.jpg" alt="..." class="img-thumbnail">
-				<img src="\Users\Danny\Pictures\aliens.jpg" alt="..." class="img-thumbnail">
-			</div>
-		</div>
-			<div class="col -md-2"></div>	
-	</div>
-	<br>
-	<br>
+    <div class="col-xl">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" id="image" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center" id="name">Nombre Pelicula</h5>
+                    <h6 class="card-text text-center" id="year">Año</h6>
+                    <div class="row">
+                    	<div class="col-sm">
+                        	<div class="progress">
+                                <div class="progress-bar  progress-color " id="rating" role="progressbar"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                                <h6>Rating</h6>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+        </div>
 
-	    <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="js/main.js"></script>
 
+	<br>
 </body>
+
+<script src="apiOMDB.js"></script>	
+
+
 </html>
