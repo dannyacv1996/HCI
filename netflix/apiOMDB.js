@@ -1,33 +1,27 @@
-document.getElementById("buscar").onclick = function() {recibirValor()};
-
 var urlSend= "http://www.omdbapi.com/?apikey=41edd7cb&";
-
+var datos = JSON.parse(data);
+var conn = new connectionApi(); 
 var buscar = "t=2012" 
-infoMovie(urlSend,buscar);
 
-function infoMovie(url,string){
-	var request = new XMLHttpRequest();
-	request.open('GET', url + string, true);
-	request.onload = function(){
-		var data = JSON.parse(this.response);
-		console.log(data)
-		var textTitle =  document.getElementById('name');
-		var textYear  =  document.getElementById('year');
-		var img 	  =  document.getElementById('image');
-		var rating    =  document.getElementById('rating');
-		console.log(data)
-		textTitle.textContent = data.Title; 
-		textYear.textContent = data.Year;
-		
-		var calificacion = parseFloat(data.imdbRating);
-		var calificacion = (calificacion/10)*100
-		rating.style.width = calificacion+'%';
-		rating.innerHTML = calificacion+'%';
-		img.src = data.Poster;
 
-		
-	};
-	request.send();
+var image = document.createElement('img')
+image.src= resolve.Poster
+document-getElementId('Elemento').AppendChild(image)
+
+
+var title = document.createElement('H1')
+title.innerHTML = revolve.Title
+
+
+function loadCatalog(value){
+	for (var i = 0; i <= 3; i++) {
+   		if(datos[0].movies[i].gender=value)
+   			console.log(datos[0].movies[i].nameMovie);
+   			for(var j=0; j<=3; j++){
+   				conn.infoMovie(urlSend,datos[0].movies[j].nameMovie);
+   			}
+	}
+
 }
 
 
@@ -36,4 +30,3 @@ function recibirValor(){
 	var string = "t="+ ide;
 	infoMovie(urlSend,string);
 };
-
