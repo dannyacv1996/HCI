@@ -30,3 +30,4 @@ function recibirValor(){
 	var string = "t="+ ide;
 	infoMovie(urlSend,string);
 };
+
