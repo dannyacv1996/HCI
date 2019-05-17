@@ -4,30 +4,27 @@ var conn = new connectionApi();
 var buscar = "t=2012" 
 
 
-var image = document.createElement('img')
-image.src= resolve.Poster
-document-getElementId('Elemento').AppendChild(image)
-
-
-var title = document.createElement('H1')
-title.innerHTML = revolve.Title
-
-
 function loadCatalog(value){
-	for (var i = 0; i <= 3; i++) {
-   		if(datos[0].movies[i].gender=value)
-   			console.log(datos[0].movies[i].nameMovie);
-   			for(var j=0; j<=3; j++){
-   				conn.infoMovie(urlSend,datos[0].movies[j].nameMovie);
-   			}
+	console.log(value)
+	for(var i in datos[0].movies){
+		if(datos[0].movies[i].gender == value){
+			for(var k in datos[0].movies[i].movies){
+				var string = datos[0].movies[i].movies[k].nameMovie
+				conn.infoMovie(urlSend, "t="+string)
+			}	
+		}
+			
 	}
 
-}
+	
+};
 
+
+conn.infoMovie(urlSend,buscar);
 
 function recibirValor(){
 	var ide = document.getElementById('buscador').value;
 	var string = "t="+ ide;
-	infoMovie(urlSend,string);
+	conn.infoMovie(urlSend,string);
 };
 
