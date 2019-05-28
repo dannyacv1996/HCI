@@ -8,6 +8,7 @@ import Medicamentos from './routes/Medicamentos.js';
 import Perfil from './routes/Perfil.js';
 
 
+
 const MainNavigator = createStackNavigator({
   Home: {screen: Home},
   Calendar: {screen: Calendar},
