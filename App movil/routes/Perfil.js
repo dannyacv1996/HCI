@@ -1,24 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, ScrollView, TextInput, DatePickerAndroid, TouchableOpacity, Alert, Picker, Image,Modal,TouchableHighlight} from 'react-native';
+import { Modal, Text, TouchableHighlight, View, StyleSheet,Image}
 
-
-
+from 'react-native'
 class Perfil extends Component {
 
-	state = {
-    modalVisible: false,
-  };
-
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-
-
-	constructor(props) {
-    	super(props);
-    	this.state = { text: '', tel: '' };
-  	}
 
 	static navigationOptions = {
 	    title: 'Perfil',
@@ -30,76 +15,71 @@ class Perfil extends Component {
 	    },
 	    headerTintColor: '#ffffff'
 	};
+   state = {
+      modalVisible: false,
+   }
+   toggleModal(visible) {
+      this.setState({ modalVisible: visible });
+   }
+   render() {
+      return (
+         <View style = {styles.container}>
+         <Image style={styles.img} source={require('../images/silvia.jpg')}/>
+         <Text>
+			{"\n"}
+			</Text>
+			<Text>
+				{"\n"}
+			</Text>
+	        <Text>Nombre: Camila Montenegro</Text>
+	          <Text>
+				{"\n"}
+			</Text>
+	          <Text>Edad: 25 años</Text>
+	         <Text>
+				{"\n"}
+			</Text>
+          	<Text>Cedula : 11135512331</Text>
+	          <Text>
+				{"\n"}
+			</Text>
+	          <Text>Telefono: 30123312331</Text>
+	          <Text>
+				{"\n"}
+			</Text>
 
-
-	render() {
-    	return (
-    		<View style={styles.container}>
-    		<Image style={styles.img} source={require('../images/silvia.jpg')}/>
-	    		<Text>
-					{"\n"}
-				</Text>
-				<Text>
-					{"\n"}
-				</Text>
-	          	<Text>Nombre: Camila Montenegro</Text>
-	          	<Text>
-					{"\n"}
-				</Text>
-	          	<Text>Edad: 25 años</Text>
-	          	<Text>
-					{"\n"}
-				</Text>
-          		<Text>Cedula : 11135512331</Text>
-	          	<Text>
-					{"\n"}
-				</Text>
-	          	<Text>Telefono: 30123312331</Text>
-	            <Text>
-					{"\n"}
-				</Text>
-			    <Button title="Historial Citas" onPress={this.setModalVisible(true)} style={styles.buttonPress}/>
-			     <Modal
-         		 animationType="slide"
-          			transparent={false}
-          			visible={this.state.modalVisible}
-          			onRequestClose={() => {
-            		Alert.alert('Modal has been closed.');
-          		}}>
-          		<View style={{marginTop: 22}}>
-            	<View>
-              		<Text>Hello World!</Text>
-                <Text>Hide Modal</Text>
-            	</View>
-          		</View>
-        		</Modal>
-			</View>
-		    
-    	);
-	}
+            <Modal animationType = {"slide"} transparent = {false}
+               visible = {this.state.modalVisible}
+               onRequestClose = {() => { console.log("Modal has been closed.") } }>
+               
+               <View style = {styles.modal}>
+                  <Text style = {styles.text}>HISTORIAL CITAS :!</Text>
+                  
+                  <TouchableHighlight onPress = {() => {
+                     this.toggleModal(!this.state.modalVisible)}}>
+                     
+                     <Text style = {styles.text}>Cerrar Historial Citas</Text>
+                  </TouchableHighlight>
+               </View>
+            </Modal>
+            
+            <TouchableHighlight onPress = {() => {this.toggleModal(true)}}>
+               <Text style = {styles.text}>Abrir Historial Citas</Text>
+            </TouchableHighlight>
+         </View>
+      )
+   }
 }
+export default Perfil
 
-const styles = StyleSheet.create({
- buttonPress: {
-    alignItems: 'center',
-    backgroundColor: '#6885FF',
-    padding: 10,
-    marginTop: 30
- },
- textButton: {
- 	color: "#fff",
-    fontSize: 18,
-    fontWeight: "600"
- },
- container: {
- 	marginTop: 20
- },
- img:{
+const styles = StyleSheet.create ({
+   container: {
+      marginTop: 20
+   },
+    img:{
  	marginLeft: '35%',
  	width: 110,
  	height: 110,
  	resizeMode: "stretch",
  }
 })
-
-export default Perfil;
