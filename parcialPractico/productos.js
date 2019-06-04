@@ -23,8 +23,8 @@ function loadDescuentos(Data){
         if(Data[0].productos[i].tipo == "tipo2" ){
             for(var j in Data[0].productos[i].productos){
                 var g = Data[0].productos[i].productos[j]
-                console.log(g.precio) 
-                var elem = createElement(g.image,g.precio)
+                console.log(g.precio,g.nombreProducto) 
+                var elem = createElement(g.image,g.precio,g.nombreProducto)
                 document.getElementById("descuentos").appendChild(elem)
             }
         }
@@ -32,9 +32,9 @@ function loadDescuentos(Data){
     
 }
 
-function createElement(img,precio,descuento){
-    var colw = document.createElement("div")
-    colw.className = "col-2"
+function createElement(img,precio,name){
+    var imprimir = document.createElement("div")
+    imprimir.className = "col-2"
     var div = document.createElement("div")
     div.className = "card"
     div.style = "widht 18rem;"
@@ -44,26 +44,22 @@ function createElement(img,precio,descuento){
     imge.widht = "10"
     imge.height= "160"
     var text = document.createElement("div")
-    text.className = "card-body align-self-center"
-    var text2 = document.createElement("div")
-    text2.className = "card-body align-self-center"
+    text.className = "card-body "
+    var text1 = document.createElement("div")
+    text.className = "card-body "
     var cola = document.createElement("div")
-    cola.className = "col-md-12 "
-    var cola2 = document.createElement("div")
-    cola.className = "col-md-12" 
-    var price = document.createElement('h5')
-    var desc = document.createElement('h5')
+    cola.className = "col-md-12 " 
+    var price = document.createElement('h6')
+    var nombre = document.createElement('h6')
     price.className = "card-title "
     console.log(price)
     price.innerHTML = precio
-    desc.innerHTML = descuento
-    cola.appendChild(price)
-    cola2.appendChild(desc)
+    nombre.innerHTML = name
+    cola.appendChild(price,name)
     text.appendChild(cola)
     div.appendChild(imge)
     div.appendChild(text)
-    div.appendChild(text2)
-    colw.appendChild(div)
-    return colw
+    imprimir.appendChild(div)
+    return imprimir
 
 }
